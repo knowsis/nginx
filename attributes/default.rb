@@ -113,6 +113,7 @@ default['nginx']['underscores_in_headers'] = nil
 default['nginx']['tcp_nodelay'] = 'on'
 default['nginx']['tcp_nopush'] = 'on'
 
+default['nginx']['syslog_server']          = nil
 default['nginx']['access_log_options']     = nil
 default['nginx']['error_log_options']      = nil
 default['nginx']['disable_access_log']     = false
