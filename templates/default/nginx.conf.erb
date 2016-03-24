@@ -9,7 +9,7 @@ worker_rlimit_nofile <%= node['nginx']['worker_rlimit_nofile'] %>;
 
 
 <% if node['nginx']['syslog_server'] %>
-  error_log syslog:<%= node['nginx']['syslog_server'] %><% if node['nginx']['error_log_options'] %> <%= node['nginx']['error_log_options'] %><% end %>;
+  error_log syslog:server=<%= node['nginx']['syslog_server'] %><% if node['nginx']['error_log_options'] %> <%= node['nginx']['error_log_options'] %><% end %>;
 <% else %>
   error_log  <%= node['nginx']['log_dir'] %>/error.log<% if node['nginx']['error_log_options'] %> <%= node['nginx']['error_log_options'] %><% end %>;  
 <% end %>
@@ -47,7 +47,7 @@ http {
   
   access_log
   <% if node['nginx']['syslog_server'] %>
-    syslog:<%= node['nginx']['syslog_server'] %>
+    syslog:server=<%= node['nginx']['syslog_server'] %>
   <% else %>
     <%= node['nginx']['log_dir'] %>/access.log
   <% end %>
